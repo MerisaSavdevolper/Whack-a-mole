@@ -4,6 +4,7 @@ const startButton = document.querySelector('#startButton');
 // TODO: Add the missing query selectors:
 const score = document.querySelector('#score'); 
 const timerDisplay = document.querySelector('#timer');
+const gameoverDiplay = document.querySelector('#game-over');
 
 let time = 0;
 let timer;
@@ -111,6 +112,7 @@ function gameOver() {
   if (time > 0) {  
       timeoutId = showUp();
   } else {
+      gameoverDiplay.style.display = "block";
       let gameStopped = stopGame();
       return gameStopped;
   }
@@ -223,11 +225,11 @@ function startTimer() {
 * the moles.
 *
 */
-function whack(event) {
+function whack() {
     console.log("whack!")
     updateScore();
     document.getElementById('hitSound').play();
-    mole.classList.remove('show');
+    
     return points;
 }
 
